@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * Address book for buddy
  */
@@ -13,6 +14,7 @@ public class AddressBook {
 	private String address;
 	private int phonenumber;
 	private String school;
+	private static ArrayList<BuddyInfo> addressBook = new ArrayList<BuddyInfo>();
 	
 	public AddressBook(String name, int age, String address, int phonenumber, String school) {
 		this.name = name;
@@ -102,6 +104,25 @@ public class AddressBook {
 		this.school = school;
 	}
 	
+	/**
+	 * add a new buddy to the array list
+	 * @param buddy
+	 */
+	public void addBuddy(BuddyInfo buddy) {
+		if(buddy != null) {
+			addressBook.add(buddy);
+		}
+	}
+	
+	/**
+	 * remove a buddy from the array list
+	 * @param buddy
+	 */
+	public void removeBuddy(BuddyInfo buddy) {
+		if(buddy != null) {
+			addressBook.remove(buddy);
+		}
+	}
 
 	/**
 	 * @param args
@@ -109,6 +130,10 @@ public class AddressBook {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Address Book");
+		BuddyInfo buddy = new BuddyInfo("David", 22, "33, rich road", 123456789, "ottawa u");
+		System.out.println(buddy.getName());
+		addressBook.add(buddy);
+		addressBook.remove(buddy);
 	}
 
 }
